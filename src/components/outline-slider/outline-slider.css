@@ -1,0 +1,89 @@
+:host {
+  @apply block;
+}
+
+.slides-wrapper {
+  @apply relative;
+}
+
+.slides-button {
+  @apply hidden items-center justify-center w-12 h-12 p-0 border border-solid border-gray-200 opacity-25 rounded-full bg-neutral-white transition-opacity duration-500 ease-out cursor-pointer;
+
+  @screen md {
+    @apply flex;
+  }
+
+  &:hover,
+  &:focus {
+    @apply opacity-100;
+  }
+
+  &:focus {
+    @apply outline-none shadow-focus-2;
+  }
+}
+
+.slides-button outline-icon {
+  @apply opacity-75 w-12;
+}
+
+.slides-previous {
+  @apply absolute left-0 ml-4;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slides-next {
+  @apply absolute right-0 mr-4;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slides-dots {
+  @apply flex justify-center w-full mt-8;
+}
+
+.dot {
+  @apply w-4 h-4 rounded-full border-none bg-gray-600 cursor-pointer;
+  text-indent: -9999px;
+
+  &:focus,
+  &:active {
+    @apply outline-none shadow-focus-2;
+  }
+
+  & + .dot {
+    @apply ml-2;
+  }
+}
+
+.dot--active {
+  @apply bg-gray-300;
+}
+
+/**
+ * Keen Slider styles from:
+ * ../../../node_modules/keen-slider/keen-slider.min.css
+ */
+::slotted(.keen-slider) {
+  display: flex;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+  position: relative;
+}
+
+::slotted(.keen-slider[data-keen-slider-v]) {
+  flex-wrap: wrap;
+}
+
+::slotted(.keen-slider[data-keen-slider-moves] *) {
+  pointer-events: none;
+}
+/* end Keen Slider styles */

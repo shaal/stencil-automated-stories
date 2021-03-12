@@ -1,0 +1,8 @@
+a {
+  @apply no-underline font-body text-brand-blue transition-colors duration-300;
+
+  &:visited,
+  &:hover {
+    @apply text-brand-blue opacity-80;
+  }
+}

@@ -1,0 +1,13 @@
+@import '../../global/_tailwind.css';
+
+:host {
+  @apply block overflow-hidden;
+
+  & section {
+    @apply flex flex-col text-left overflow-hidden;
+  }
+
+  & p {
+    @apply mb-10;
+  }
+}

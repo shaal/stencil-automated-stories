@@ -1,0 +1,6 @@
+@import '../../global/_tailwind.css';
+@import '../../global/_heading.css';
+
+:host {
+  @apply block;
+}

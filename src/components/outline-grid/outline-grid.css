@@ -1,0 +1,143 @@
+:host {
+  @apply block;
+}
+
+outline-container {
+  @apply grid grid-cols-12 h-full;
+}
+
+:host([gap-size='large']) outline-container {
+  @apply gap-16;
+}
+
+:host([gap-size='medium']) outline-container {
+  @apply gap-10;
+}
+
+:host([gap-size='small']) outline-container {
+  @apply gap-4;
+}
+
+:host([gap-size='none']) outline-container {
+  @apply gap-0;
+}
+
+:host([gap-size-sm='large']) outline-container {
+  @screen sm {
+    @apply gap-16;
+  }
+}
+
+:host([gap-size-sm='medium']) outline-container {
+  @screen sm {
+    @apply gap-10;
+  }
+}
+
+:host([gap-size-sm='small']) outline-container {
+  @screen sm {
+    @apply gap-4;
+  }
+}
+
+:host([gap-size-sm='none']) outline-container {
+  @screen sm {
+    @apply gap-0;
+  }
+}
+
+:host([gap-size-md='large']) outline-container {
+  @screen md {
+    @apply gap-16;
+  }
+}
+
+:host([gap-size-md='medium']) outline-container {
+  @screen md {
+    @apply gap-10;
+  }
+}
+
+:host([gap-size-md='small']) outline-container {
+  @screen md {
+    @apply gap-4;
+  }
+}
+
+:host([gap-size-md='none']) outline-container {
+  @screen md {
+    @apply gap-0;
+  }
+}
+
+:host([gap-size-lg='large']) outline-container {
+  @screen lg {
+    @apply gap-16;
+  }
+}
+
+:host([gap-size-lg='medium']) outline-container {
+  @screen lg {
+    @apply gap-10;
+  }
+}
+
+:host([gap-size-lg='small']) outline-container {
+  @screen lg {
+    @apply gap-4;
+  }
+}
+
+:host([gap-size-lg='none']) outline-container {
+  @screen lg {
+    @apply gap-0;
+  }
+}
+
+:host([gap-size-xl='large']) outline-container {
+  @screen xl {
+    @apply gap-16;
+  }
+}
+
+:host([gap-size-xl='medium']) outline-container {
+  @screen xl {
+    @apply gap-10;
+  }
+}
+
+:host([gap-size-xl='small']) outline-container {
+  @screen xl {
+    @apply gap-4;
+  }
+}
+
+:host([gap-size-xl='none']) outline-container {
+  @screen xl {
+    @apply gap-0;
+  }
+}
+
+:host([gap-size-xxl='large']) outline-container {
+  @screen xxl {
+    @apply gap-16;
+  }
+}
+
+:host([gap-size-xxl='medium']) outline-container {
+  @screen xxl {
+    @apply gap-10;
+  }
+}
+
+:host([gap-size-xxl='small']) outline-container {
+  @screen xxl {
+    @apply gap-4;
+  }
+}
+
+:host([gap-size-xxl='none']) outline-container {
+  @screen xxl {
+    @apply gap-0;
+  }
+}

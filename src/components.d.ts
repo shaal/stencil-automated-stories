@@ -5,6 +5,14 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { AllowedAlertTypes } from "./components/outline-alert/config";
+import { IconTypeCustom, IconTypeOutline, IconTypeSolid } from "./components/outline-icon/config";
+import { LinkTarget } from "./components/outline-link/config";
+import { ButtonVariant } from "./components/outline-button/outline-button";
+import { colSpanRange, rowSpanRange } from "./components/outline-column/outline-column";
+import { HorizontalAlignment, Size, VerticalAlignment } from "./utils/types";
+import { AllowedHeadingLevels, AllowedHeadingSizes, AllowedHeadingStyles } from "./components/outline-heading/config";
+import { StatVariant } from "./components/outline-stat/outline-stat";
 export namespace Components {
     interface MyButton {
         "color"?: 'primary' | 'secondary';
@@ -12,6 +20,250 @@ export namespace Components {
         "elevation"?: boolean;
         "shape"?: 'full' | 'round' | 'smooth';
         "size"?: 'large' | 'medium' | 'small';
+    }
+    interface OutlineAlert {
+        /**
+          * Choose which predefined icon to add to the link
+         */
+        "icon": IconTypeCustom | IconTypeSolid | IconTypeOutline;
+        /**
+          * The alert style to apply: info | success | warning | error
+         */
+        "type": AllowedAlertTypes;
+    }
+    interface OutlineButton {
+        /**
+          * Whether the button is disabled. Only applies to implementations not using the url prop
+         */
+        "disabled": boolean;
+        /**
+          * Choose which predefined icon to add to the link
+         */
+        "icon": IconTypeCustom | IconTypeSolid | IconTypeOutline;
+        /**
+          * The target to use for a link, used in conjunction with the url attribute.
+         */
+        "target": LinkTarget;
+        /**
+          * The url to use for a link. This will render an anchor element. Do not set this prop if you want to render a button element.
+         */
+        "url": string;
+        /**
+          * The button style variant to use.
+         */
+        "variant": ButtonVariant;
+    }
+    interface OutlineCard {
+        /**
+          * The color class to apply to the content slot.
+         */
+        "bgColorContent": string;
+        /**
+          * The color class to apply to the footer slot.
+         */
+        "bgColorFooter": string;
+        /**
+          * The color class to apply to the header slot.
+         */
+        "bgColorHeader": string;
+        /**
+          * Whether or not this card has a shadow.
+         */
+        "hasShadow": boolean;
+        /**
+          * Whether or not this is a nested container. If it's nested, remove padding.
+         */
+        "isRounded": boolean;
+    }
+    interface OutlineColumn {
+        /**
+          * The number of columns wide this column should be on extra extra large+ screens.
+         */
+        "colSpan2xl": colSpanRange;
+        /**
+          * The number of columns wide this column should be.
+         */
+        "colSpanDefault": colSpanRange;
+        /**
+          * The number of columns wide this column should be on large+ screens.
+         */
+        "colSpanLg": colSpanRange;
+        /**
+          * The number of columns wide this column should be on medium+ screens.
+         */
+        "colSpanMd": colSpanRange;
+        /**
+          * The number of columns wide this column should be on small+ screens.
+         */
+        "colSpanSm": colSpanRange;
+        /**
+          * The number of columns wide this column should be on extra large+ screens.
+         */
+        "colSpanXl": colSpanRange;
+        /**
+          * The vertical placement of content inside of the column.
+         */
+        "contentAlign": VerticalAlignment;
+        /**
+          * The number of rows this column will span.
+         */
+        "rowSpan": rowSpanRange;
+    }
+    interface OutlineContainer {
+        /**
+          * The horizontal placement of the container..
+         */
+        "align": HorizontalAlignment;
+        /**
+          * Whether or not this is a nested container. If it's nested, remove padding.
+         */
+        "fullBleed": boolean;
+        /**
+          * Whether or not this is a nested container. If it's nested, remove padding.
+         */
+        "isNested": boolean;
+    }
+    interface OutlineGrid {
+        /**
+          * Whether or not this is a full bleed grid and goes edge to edge.
+         */
+        "fullBleed": boolean;
+        /**
+          * How much of a gap should exist between columns? (This affects both the vertical and horizontal column/row gaps.)
+         */
+        "gapSize": Size;
+        /**
+          * How much of a gap should exist between columns on large+ screens? (This affects both the vertical and horizontal column/row gaps.)
+         */
+        "gapSizeLg": Size;
+        /**
+          * How much of a gap should exist between columns on medium+ screens? (This affects both the vertical and horizontal column/row gaps.)
+         */
+        "gapSizeMd": Size;
+        /**
+          * How much of a gap should exist between columns on small+ screens? (This affects both the vertical and horizontal column/row gaps.)
+         */
+        "gapSizeSm": Size;
+        /**
+          * How much of a gap should exist between columns on extra large+ screens? (This affects both the vertical and horizontal column/row gaps.)
+         */
+        "gapSizeXl": Size;
+        /**
+          * How much of a gap should exist between columns on extra extra large+ screens? (This affects both the vertical and horizontal column/row gaps.)
+         */
+        "gapSizeXxl": Size;
+        /**
+          * Whether or not this is a nested grid. If it's nested, remove padding from the container.
+         */
+        "isNested": boolean;
+    }
+    interface OutlineHeading {
+        /**
+          * The heading tag to apply: 1 | 2 | 3 | 4
+         */
+        "level": AllowedHeadingLevels;
+        /**
+          * The heading level size to apply. Optional override to default styles for a given level
+         */
+        "levelSize": AllowedHeadingSizes;
+        /**
+          * The heading level style to apply. Optional override to default styles for a given level
+         */
+        "levelStyle": AllowedHeadingStyles;
+        /**
+          * The smaller, decorative subheading style
+         */
+        "sub": boolean;
+    }
+    interface OutlineIcon {
+        /**
+          * The color class to apply to the icon
+         */
+        "color": string;
+        /**
+          * The icon type to display from ./assets. Takes precedence over url.
+         */
+        "icon": IconTypeCustom | IconTypeSolid | IconTypeOutline;
+        /**
+          * The url to display a remote icon
+         */
+        "url": string;
+    }
+    interface OutlineImage {
+        /**
+          * Should this image be a parallax instance?
+         */
+        "parallax": boolean;
+    }
+    interface OutlineLink {
+        /**
+          * The <a> href attribute
+         */
+        "href": string;
+        /**
+          * The <a> rel attribute
+         */
+        "rel": string;
+        /**
+          * The <a> target attribute
+         */
+        "target": LinkTarget;
+    }
+    interface OutlineSlider {
+        /**
+          * Whether to automatically advance slides
+         */
+        "autoplay": boolean;
+        /**
+          * Whether to display navigation arrows to switch slides
+         */
+        "displayArrows": boolean;
+        /**
+          * Whether to display navigation dots to switch slides
+         */
+        "displayDots": boolean;
+        /**
+          * Delay between slides change (miliseconds, requires active autoplay)
+         */
+        "duration": number;
+        /**
+          * Whether the slider has been initialized
+         */
+        "initialized": boolean;
+        /**
+          * Whether to infinitely loop slides
+         */
+        "loop": boolean;
+        /**
+          * Number of slides to display (e.g. use 1.5 to display one and a half slides)
+         */
+        "slidesToDisplay": number;
+        /**
+          * Spacing between slides
+         */
+        "spacing": number;
+    }
+    interface OutlineStat {
+        /**
+          * Whether the stat is disabled. Only applies to implementations not using the url prop
+         */
+        "disabled": boolean;
+        /**
+          * Choose which predefined icon to add to the link
+         */
+        "icon": IconTypeCustom | IconTypeSolid | IconTypeOutline;
+        /**
+          * The target to use for a link, used in conjunction with the url attribute.
+         */
+        "target": LinkTarget;
+        /**
+          * The url to use for a link. This will render an anchor element. Do not set this prop if you want to render a stat element.
+         */
+        "url": string;
+        /**
+          * The stat style variant to use.
+         */
+        "variant": StatVariant;
     }
 }
 declare global {
@@ -21,8 +273,92 @@ declare global {
         prototype: HTMLMyButtonElement;
         new (): HTMLMyButtonElement;
     };
+    interface HTMLOutlineAlertElement extends Components.OutlineAlert, HTMLStencilElement {
+    }
+    var HTMLOutlineAlertElement: {
+        prototype: HTMLOutlineAlertElement;
+        new (): HTMLOutlineAlertElement;
+    };
+    interface HTMLOutlineButtonElement extends Components.OutlineButton, HTMLStencilElement {
+    }
+    var HTMLOutlineButtonElement: {
+        prototype: HTMLOutlineButtonElement;
+        new (): HTMLOutlineButtonElement;
+    };
+    interface HTMLOutlineCardElement extends Components.OutlineCard, HTMLStencilElement {
+    }
+    var HTMLOutlineCardElement: {
+        prototype: HTMLOutlineCardElement;
+        new (): HTMLOutlineCardElement;
+    };
+    interface HTMLOutlineColumnElement extends Components.OutlineColumn, HTMLStencilElement {
+    }
+    var HTMLOutlineColumnElement: {
+        prototype: HTMLOutlineColumnElement;
+        new (): HTMLOutlineColumnElement;
+    };
+    interface HTMLOutlineContainerElement extends Components.OutlineContainer, HTMLStencilElement {
+    }
+    var HTMLOutlineContainerElement: {
+        prototype: HTMLOutlineContainerElement;
+        new (): HTMLOutlineContainerElement;
+    };
+    interface HTMLOutlineGridElement extends Components.OutlineGrid, HTMLStencilElement {
+    }
+    var HTMLOutlineGridElement: {
+        prototype: HTMLOutlineGridElement;
+        new (): HTMLOutlineGridElement;
+    };
+    interface HTMLOutlineHeadingElement extends Components.OutlineHeading, HTMLStencilElement {
+    }
+    var HTMLOutlineHeadingElement: {
+        prototype: HTMLOutlineHeadingElement;
+        new (): HTMLOutlineHeadingElement;
+    };
+    interface HTMLOutlineIconElement extends Components.OutlineIcon, HTMLStencilElement {
+    }
+    var HTMLOutlineIconElement: {
+        prototype: HTMLOutlineIconElement;
+        new (): HTMLOutlineIconElement;
+    };
+    interface HTMLOutlineImageElement extends Components.OutlineImage, HTMLStencilElement {
+    }
+    var HTMLOutlineImageElement: {
+        prototype: HTMLOutlineImageElement;
+        new (): HTMLOutlineImageElement;
+    };
+    interface HTMLOutlineLinkElement extends Components.OutlineLink, HTMLStencilElement {
+    }
+    var HTMLOutlineLinkElement: {
+        prototype: HTMLOutlineLinkElement;
+        new (): HTMLOutlineLinkElement;
+    };
+    interface HTMLOutlineSliderElement extends Components.OutlineSlider, HTMLStencilElement {
+    }
+    var HTMLOutlineSliderElement: {
+        prototype: HTMLOutlineSliderElement;
+        new (): HTMLOutlineSliderElement;
+    };
+    interface HTMLOutlineStatElement extends Components.OutlineStat, HTMLStencilElement {
+    }
+    var HTMLOutlineStatElement: {
+        prototype: HTMLOutlineStatElement;
+        new (): HTMLOutlineStatElement;
+    };
     interface HTMLElementTagNameMap {
         "my-button": HTMLMyButtonElement;
+        "outline-alert": HTMLOutlineAlertElement;
+        "outline-button": HTMLOutlineButtonElement;
+        "outline-card": HTMLOutlineCardElement;
+        "outline-column": HTMLOutlineColumnElement;
+        "outline-container": HTMLOutlineContainerElement;
+        "outline-grid": HTMLOutlineGridElement;
+        "outline-heading": HTMLOutlineHeadingElement;
+        "outline-icon": HTMLOutlineIconElement;
+        "outline-image": HTMLOutlineImageElement;
+        "outline-link": HTMLOutlineLinkElement;
+        "outline-slider": HTMLOutlineSliderElement;
+        "outline-stat": HTMLOutlineStatElement;
     }
 }
 declare namespace LocalJSX {
@@ -33,8 +369,264 @@ declare namespace LocalJSX {
         "shape"?: 'full' | 'round' | 'smooth';
         "size"?: 'large' | 'medium' | 'small';
     }
+    interface OutlineAlert {
+        /**
+          * Choose which predefined icon to add to the link
+         */
+        "icon"?: IconTypeCustom | IconTypeSolid | IconTypeOutline;
+        /**
+          * The alert style to apply: info | success | warning | error
+         */
+        "type"?: AllowedAlertTypes;
+    }
+    interface OutlineButton {
+        /**
+          * Whether the button is disabled. Only applies to implementations not using the url prop
+         */
+        "disabled"?: boolean;
+        /**
+          * Choose which predefined icon to add to the link
+         */
+        "icon"?: IconTypeCustom | IconTypeSolid | IconTypeOutline;
+        /**
+          * The target to use for a link, used in conjunction with the url attribute.
+         */
+        "target"?: LinkTarget;
+        /**
+          * The url to use for a link. This will render an anchor element. Do not set this prop if you want to render a button element.
+         */
+        "url"?: string;
+        /**
+          * The button style variant to use.
+         */
+        "variant"?: ButtonVariant;
+    }
+    interface OutlineCard {
+        /**
+          * The color class to apply to the content slot.
+         */
+        "bgColorContent"?: string;
+        /**
+          * The color class to apply to the footer slot.
+         */
+        "bgColorFooter"?: string;
+        /**
+          * The color class to apply to the header slot.
+         */
+        "bgColorHeader"?: string;
+        /**
+          * Whether or not this card has a shadow.
+         */
+        "hasShadow"?: boolean;
+        /**
+          * Whether or not this is a nested container. If it's nested, remove padding.
+         */
+        "isRounded"?: boolean;
+    }
+    interface OutlineColumn {
+        /**
+          * The number of columns wide this column should be on extra extra large+ screens.
+         */
+        "colSpan2xl"?: colSpanRange;
+        /**
+          * The number of columns wide this column should be.
+         */
+        "colSpanDefault"?: colSpanRange;
+        /**
+          * The number of columns wide this column should be on large+ screens.
+         */
+        "colSpanLg"?: colSpanRange;
+        /**
+          * The number of columns wide this column should be on medium+ screens.
+         */
+        "colSpanMd"?: colSpanRange;
+        /**
+          * The number of columns wide this column should be on small+ screens.
+         */
+        "colSpanSm"?: colSpanRange;
+        /**
+          * The number of columns wide this column should be on extra large+ screens.
+         */
+        "colSpanXl"?: colSpanRange;
+        /**
+          * The vertical placement of content inside of the column.
+         */
+        "contentAlign"?: VerticalAlignment;
+        /**
+          * The number of rows this column will span.
+         */
+        "rowSpan"?: rowSpanRange;
+    }
+    interface OutlineContainer {
+        /**
+          * The horizontal placement of the container..
+         */
+        "align"?: HorizontalAlignment;
+        /**
+          * Whether or not this is a nested container. If it's nested, remove padding.
+         */
+        "fullBleed"?: boolean;
+        /**
+          * Whether or not this is a nested container. If it's nested, remove padding.
+         */
+        "isNested"?: boolean;
+    }
+    interface OutlineGrid {
+        /**
+          * Whether or not this is a full bleed grid and goes edge to edge.
+         */
+        "fullBleed"?: boolean;
+        /**
+          * How much of a gap should exist between columns? (This affects both the vertical and horizontal column/row gaps.)
+         */
+        "gapSize"?: Size;
+        /**
+          * How much of a gap should exist between columns on large+ screens? (This affects both the vertical and horizontal column/row gaps.)
+         */
+        "gapSizeLg"?: Size;
+        /**
+          * How much of a gap should exist between columns on medium+ screens? (This affects both the vertical and horizontal column/row gaps.)
+         */
+        "gapSizeMd"?: Size;
+        /**
+          * How much of a gap should exist between columns on small+ screens? (This affects both the vertical and horizontal column/row gaps.)
+         */
+        "gapSizeSm"?: Size;
+        /**
+          * How much of a gap should exist between columns on extra large+ screens? (This affects both the vertical and horizontal column/row gaps.)
+         */
+        "gapSizeXl"?: Size;
+        /**
+          * How much of a gap should exist between columns on extra extra large+ screens? (This affects both the vertical and horizontal column/row gaps.)
+         */
+        "gapSizeXxl"?: Size;
+        /**
+          * Whether or not this is a nested grid. If it's nested, remove padding from the container.
+         */
+        "isNested"?: boolean;
+    }
+    interface OutlineHeading {
+        /**
+          * The heading tag to apply: 1 | 2 | 3 | 4
+         */
+        "level"?: AllowedHeadingLevels;
+        /**
+          * The heading level size to apply. Optional override to default styles for a given level
+         */
+        "levelSize"?: AllowedHeadingSizes;
+        /**
+          * The heading level style to apply. Optional override to default styles for a given level
+         */
+        "levelStyle"?: AllowedHeadingStyles;
+        /**
+          * The smaller, decorative subheading style
+         */
+        "sub"?: boolean;
+    }
+    interface OutlineIcon {
+        /**
+          * The color class to apply to the icon
+         */
+        "color"?: string;
+        /**
+          * The icon type to display from ./assets. Takes precedence over url.
+         */
+        "icon"?: IconTypeCustom | IconTypeSolid | IconTypeOutline;
+        /**
+          * The url to display a remote icon
+         */
+        "url"?: string;
+    }
+    interface OutlineImage {
+        /**
+          * Should this image be a parallax instance?
+         */
+        "parallax"?: boolean;
+    }
+    interface OutlineLink {
+        /**
+          * The <a> href attribute
+         */
+        "href"?: string;
+        /**
+          * The <a> rel attribute
+         */
+        "rel"?: string;
+        /**
+          * The <a> target attribute
+         */
+        "target"?: LinkTarget;
+    }
+    interface OutlineSlider {
+        /**
+          * Whether to automatically advance slides
+         */
+        "autoplay"?: boolean;
+        /**
+          * Whether to display navigation arrows to switch slides
+         */
+        "displayArrows"?: boolean;
+        /**
+          * Whether to display navigation dots to switch slides
+         */
+        "displayDots"?: boolean;
+        /**
+          * Delay between slides change (miliseconds, requires active autoplay)
+         */
+        "duration"?: number;
+        /**
+          * Whether the slider has been initialized
+         */
+        "initialized"?: boolean;
+        /**
+          * Whether to infinitely loop slides
+         */
+        "loop"?: boolean;
+        /**
+          * Number of slides to display (e.g. use 1.5 to display one and a half slides)
+         */
+        "slidesToDisplay"?: number;
+        /**
+          * Spacing between slides
+         */
+        "spacing"?: number;
+    }
+    interface OutlineStat {
+        /**
+          * Whether the stat is disabled. Only applies to implementations not using the url prop
+         */
+        "disabled"?: boolean;
+        /**
+          * Choose which predefined icon to add to the link
+         */
+        "icon"?: IconTypeCustom | IconTypeSolid | IconTypeOutline;
+        /**
+          * The target to use for a link, used in conjunction with the url attribute.
+         */
+        "target"?: LinkTarget;
+        /**
+          * The url to use for a link. This will render an anchor element. Do not set this prop if you want to render a stat element.
+         */
+        "url"?: string;
+        /**
+          * The stat style variant to use.
+         */
+        "variant"?: StatVariant;
+    }
     interface IntrinsicElements {
         "my-button": MyButton;
+        "outline-alert": OutlineAlert;
+        "outline-button": OutlineButton;
+        "outline-card": OutlineCard;
+        "outline-column": OutlineColumn;
+        "outline-container": OutlineContainer;
+        "outline-grid": OutlineGrid;
+        "outline-heading": OutlineHeading;
+        "outline-icon": OutlineIcon;
+        "outline-image": OutlineImage;
+        "outline-link": OutlineLink;
+        "outline-slider": OutlineSlider;
+        "outline-stat": OutlineStat;
     }
 }
 export { LocalJSX as JSX };
@@ -42,6 +634,18 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-button": LocalJSX.MyButton & JSXBase.HTMLAttributes<HTMLMyButtonElement>;
+            "outline-alert": LocalJSX.OutlineAlert & JSXBase.HTMLAttributes<HTMLOutlineAlertElement>;
+            "outline-button": LocalJSX.OutlineButton & JSXBase.HTMLAttributes<HTMLOutlineButtonElement>;
+            "outline-card": LocalJSX.OutlineCard & JSXBase.HTMLAttributes<HTMLOutlineCardElement>;
+            "outline-column": LocalJSX.OutlineColumn & JSXBase.HTMLAttributes<HTMLOutlineColumnElement>;
+            "outline-container": LocalJSX.OutlineContainer & JSXBase.HTMLAttributes<HTMLOutlineContainerElement>;
+            "outline-grid": LocalJSX.OutlineGrid & JSXBase.HTMLAttributes<HTMLOutlineGridElement>;
+            "outline-heading": LocalJSX.OutlineHeading & JSXBase.HTMLAttributes<HTMLOutlineHeadingElement>;
+            "outline-icon": LocalJSX.OutlineIcon & JSXBase.HTMLAttributes<HTMLOutlineIconElement>;
+            "outline-image": LocalJSX.OutlineImage & JSXBase.HTMLAttributes<HTMLOutlineImageElement>;
+            "outline-link": LocalJSX.OutlineLink & JSXBase.HTMLAttributes<HTMLOutlineLinkElement>;
+            "outline-slider": LocalJSX.OutlineSlider & JSXBase.HTMLAttributes<HTMLOutlineSliderElement>;
+            "outline-stat": LocalJSX.OutlineStat & JSXBase.HTMLAttributes<HTMLOutlineStatElement>;
         }
     }
 }
