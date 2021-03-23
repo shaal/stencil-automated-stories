@@ -1,0 +1,28 @@
+.sh-button {
+  display: inline-flex;
+  min-width: 80px;
+  height: 40px;
+  padding-right: var(--spacing-l);
+  padding-left: var(--spacing-l);
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--n200);
+  border-radius: var(--border-radius-m);
+  color: var(--n700);
+  background-color: var(--n200);
+  font-family: var(--font-family);
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.25px;
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    background-color: var(--n300);
+  }
+
+  &:focus {
+    border-color: var(--b100);
+    outline: none;
+    box-shadow: 0 0 3px var(--b100);
+  }
+}
