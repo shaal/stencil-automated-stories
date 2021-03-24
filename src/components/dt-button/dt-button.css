@@ -1,4 +1,9 @@
-.sh-button {
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+@import '../../css/tokens.css';
+@import '../../css/tokens2.css';
+
+.dt-button {
   display: inline-flex;
   min-width: 80px;
   height: 40px;

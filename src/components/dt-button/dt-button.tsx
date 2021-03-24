@@ -14,15 +14,15 @@ import { Component, Host, h } from '@stencil/core';
 //   return <button class="sh-button">{label}</button>;
 // }
 
-export class MyButton {
+export class DtButton {
 
   render() {
     return (
       <Host>
-        <button class="sh-button">
+        <button class="dt-button" type="button">
           <slot>
           </slot>
-        </button>;
+        </button>
       </Host>
     );
   }
